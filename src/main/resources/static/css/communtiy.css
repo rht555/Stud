@@ -1,0 +1,17 @@
+body{
+    background-color: #efefef;
+}
+.main{
+    margin: 30px;
+    background-color: #ffffff;
+}
+.fr{
+    float: right;
+    margin-bottom: 15px;
+}
+.rb{
+    border-right: 1px solid #000000;
+}
+.red{
+    color: red;
+}
