@@ -25,7 +25,7 @@ public class Authorize {
     private String clieentSecret;
     @Value("${github.redirect.url}")
     private String clientUrl;
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
@@ -47,6 +47,7 @@ public class Authorize {
             user1.setAccountId(String.valueOf(user.getId()));
             user1.setGmtCreate(System.currentTimeMillis());
             user1.setGmtModified(user1.getGmtCreate());
+            user1.setAvatarUrl(user.getAvatar_url());
             userMapper.insert(user1);
             //登录成功写入cookie和session
             response.addCookie(new Cookie("token",token));
